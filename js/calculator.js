@@ -94,8 +94,23 @@ function handleBooking(car) {
   const result = calculatePrice(car, days, season);
   
   const lang = getCurrentLang();
+  const phone = '+359988746138';
   
-  // Prepare booking message
+  // Check if mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // On mobile - direct call
+    window.location.href = `tel:${phone}`;
+  } else {
+    // On desktop - show contact options dialog
+    const message = prepareBookingMessage(car, days, season, result, lang);
+    showBookingOptions(message);
+  }
+}
+
+// Prepare booking message
+function prepareBookingMessage(car, days, season, result, lang) {
   let message = '';
   if (lang === 'ru') {
     message = `Здравствуйте! Хочу забронировать:\n\n`;
@@ -126,8 +141,7 @@ function handleBooking(car) {
     message += `Очаквам вашия отговор.`;
   }
   
-  // Show booking options
-  showBookingOptions(message);
+  return message;
 }
 
 // Show booking contact options

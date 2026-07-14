@@ -312,13 +312,12 @@ a {
 /* Hero Section */
 .hero {
   position: relative;
-  height: 600px;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  margin-top: var(--header-height);
   overflow: hidden;
 }
 
