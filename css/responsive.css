@@ -1,0 +1,315 @@
+/* Responsive Design - Mobile First */
+
+/* Tablets and below (< 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  
+  .hero {
+    height: 500px;
+  }
+  
+  .cars-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  
+  .conditions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .modal-body {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-gallery {
+    border-bottom: 1px solid var(--light);
+  }
+}
+
+/* Mobile devices (< 768px) */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.25rem; }
+  
+  /* Header */
+  .nav-desktop,
+  .lang-switcher-desktop {
+    display: none;
+  }
+  
+  .burger-menu {
+    display: flex;
+  }
+  
+  .logo-text {
+    font-size: 1rem;
+  }
+  
+  /* Hero */
+  .hero {
+    height: 450px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  /* Sections */
+  .section {
+    padding: 60px 0;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  /* Cars Grid */
+  .cars-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  /* Conditions */
+  .conditions-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .condition-card {
+    padding: 20px;
+  }
+  
+  /* Contacts */
+  .contact-buttons {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Modal */
+  .modal-content {
+    width: 95%;
+    margin: 2.5vh auto;
+    max-height: 95vh;
+  }
+  
+  .modal-gallery,
+  .modal-details {
+    padding: 20px;
+  }
+  
+  .gallery-main {
+    aspect-ratio: 3/2;
+  }
+  
+  .gallery-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  
+  .gallery-prev {
+    left: 8px;
+  }
+  
+  .gallery-next {
+    right: 8px;
+  }
+  
+  .modal-specs {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .calculator {
+    padding: 20px;
+  }
+  
+  .result-row.total {
+    font-size: 1rem;
+  }
+  
+  .total-amount {
+    font-size: 1.5rem;
+  }
+}
+
+/* Small mobile devices (< 480px) */
+@media (max-width: 480px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  
+  .hero {
+    height: 400px;
+  }
+  
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  
+  .section {
+    padding: 40px 0;
+  }
+  
+  .car-image {
+    height: 180px;
+  }
+  
+  .car-content {
+    padding: 16px;
+  }
+  
+  .car-title {
+    font-size: 1.125rem;
+  }
+  
+  .car-specs {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .mobile-menu {
+    width: 100%;
+  }
+  
+  .modal-close {
+    width: 36px;
+    height: 36px;
+    top: 12px;
+    right: 12px;
+    font-size: 24px;
+  }
+  
+  .gallery-thumbs {
+    gap: 8px;
+  }
+  
+  .gallery-thumb {
+    width: 60px;
+    height: 45px;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .contact-icon {
+    font-size: 2rem;
+  }
+}
+
+/* Large screens (> 1280px) */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+  
+  .hero {
+    height: 700px;
+  }
+  
+  .cars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Extra large screens (> 1536px) */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .cars-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Print styles */
+@media print {
+  .header,
+  .hero,
+  .footer,
+  .modal {
+    display: none;
+  }
+  
+  .section {
+    page-break-inside: avoid;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    height: 100vh;
+  }
+  
+  .modal-content {
+    max-height: 98vh;
+    margin: 1vh auto;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .car-card,
+  .contact-btn,
+  .lang-btn-mobile,
+  .nav-mobile a {
+    min-height: 44px;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .car-card:hover {
+    transform: none;
+  }
+  
+  .nav-desktop a::after {
+    display: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  /* You can add dark mode styles here if needed */
+}
