@@ -24,6 +24,7 @@
   
   .modal-body {
     grid-template-columns: 1fr;
+    grid-template-areas: "gallery" "details";
   }
   
   .modal-gallery {
@@ -110,9 +111,16 @@
   .modal-body {
     max-height: 100vh;
     overflow-y: auto;
+    grid-template-columns: 1fr;
+    grid-template-areas: "gallery" "details";
   }
   
-  .modal-gallery,
+  .modal-gallery {
+    padding: 16px;
+    padding-top: 60px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
   .modal-details {
     padding: 16px;
   }

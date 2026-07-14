@@ -64,12 +64,14 @@
 .modal-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas: "gallery details";
   max-height: 90vh;
   overflow-y: auto;
 }
 
 /* Gallery */
 .modal-gallery {
+  grid-area: gallery;
   padding: 32px;
   background: var(--light);
 }
@@ -151,6 +153,7 @@
 
 /* Modal Details */
 .modal-details {
+  grid-area: details;
   padding: 32px;
   overflow-y: auto;
 }
