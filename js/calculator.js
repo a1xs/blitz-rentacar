@@ -149,10 +149,11 @@ function showBookingOptions(message) {
   const encodedMessage = encodeURIComponent(message);
   const phone = '+359988746138';
   const email = 'missisnatalea@gmail.com';
+  const lang = getCurrentLang();
   
   // Create links
   const whatsappLink = `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${encodedMessage}`;
-  const viberLink = `viber://chat?number=${phone.replace(/[^0-9]/g, '')}`;
+  const viberLink = `viber://chat?number=%2B${phone.replace(/[^0-9]/g, '')}`;
   const telegramLink = `https://t.me/${phone.replace(/[^0-9]/g, '')}`;
   
   const emailSubject = encodeURIComponent(lang === 'en' ? 'Car Booking' : lang === 'bg' ? 'Резервация на автомобил' : 'Бронирование автомобиля');
@@ -173,8 +174,6 @@ function showBookingOptions(message) {
     max-width: 400px;
     width: 90%;
   `;
-  
-  const lang = getCurrentLang();
   const title = lang === 'en' ? 'Choose contact method:' : lang === 'bg' ? 'Изберете начин за контакт:' : 'Выберите способ связи:';
   
   dialog.innerHTML = `

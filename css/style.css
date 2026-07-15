@@ -559,12 +559,61 @@ a {
 }
 
 .contact-buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
   margin-top: 32px;
 }
 
+.contact-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon-btn svg {
+  width: 32px;
+  height: 32px;
+}
+
+.contact-icon-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-icon-btn.whatsapp {
+  background: #25d366;
+  color: white;
+}
+
+.contact-icon-btn.whatsapp:hover {
+  background: #1da851;
+}
+
+.contact-icon-btn.viber {
+  background: #7360f2;
+  color: white;
+}
+
+.contact-icon-btn.viber:hover {
+  background: #5a4ac7;
+}
+
+.contact-icon-btn.telegram {
+  background: #0088cc;
+  color: white;
+}
+
+.contact-icon-btn.telegram:hover {
+  background: #006699;
+}
+
+/* Old button styles - keep for modal */
 .contact-btn {
   display: flex;
   align-items: center;
