@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Modal Layout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    .test-button {
+      padding: 15px 30px;
+      background: #1e40af;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    /* Desktop layout */
+    .modal-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 2px solid #ccc;
+      margin: 20px 0;
+    }
+    
+    .modal-gallery {
+      background: #e0f2fe;
+      padding: 20px;
+      min-height: 200px;
+    }
+    
+    .modal-details {
+      background: #fef3c7;
+      padding: 20px;
+      min-height: 200px;
+    }
+    
+    /* Mobile layout */
+    @media (max-width: 768px) {
+      .modal-body {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: unset !important;
+      }
+      
+      .modal-gallery {
+        order: 1 !important;
+        background: #e0f2fe;
+      }
+      
+      .modal-details {
+        order: 2 !important;
+        background: #fef3c7;
+      }
+    }
+    
+    .info {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚗 Тест порядка элементов в модальном окне</h1>
+  
+  <div class="info">
+    <strong>Инструкция:</strong>
+    <ul>
+      <li><strong>Desktop (> 768px):</strong> Фото слева, детали справа</li>
+      <li><strong>Mobile (< 768px):</strong> Фото сверху, детали снизу</li>
+    </ul>
+    <p>Откройте DevTools (F12) и переключите на мобильное устройство для проверки</p>
+  </div>
+  
+  <h2>Desktop версия (> 768px):</h2>
+  <div class="modal-body">
+    <div class="modal-gallery">
+      <h3>📸 ГАЛЕРЕЯ (Gallery)</h3>
+      <p>В коде это первый элемент</p>
+      <p>На десктопе отображается СЛЕВА</p>
+    </div>
+    <div class="modal-details">
+      <h3>📝 ДЕТАЛИ (Details)</h3>
+      <p>В коде это второй элемент</p>
+      <p>На десктопе отображается СПРАВА</p>
+    </div>
+  </div>
+  
+  <h2>Mobile версия (< 768px):</h2>
+  <div class="info" style="background: #dcfce7;">
+    <p><strong>✅ С использованием flexbox + order:</strong></p>
+    <p>1️⃣ Галерея (order: 1) → СВЕРХУ</p>
+    <p>2️⃣ Детали (order: 2) → СНИЗУ</p>
+  </div>
+  
+  <hr style="margin: 30px 0;">
+  
+  <h2>Текущее разрешение экрана:</h2>
+  <div class="info">
+    <p><strong>Ширина:</strong> <span id="width"></span>px</p>
+    <p><strong>Высота:</strong> <span id="height"></span>px</p>
+    <p><strong>Режим:</strong> <span id="mode"></span></p>
+  </div>
+  
+  <script>
+    function updateScreenInfo() {
+      document.getElementById('width').textContent = window.innerWidth;
+      document.getElementById('height').textContent = window.innerHeight;
+      
+      if (window.innerWidth <= 768) {
+        document.getElementById('mode').textContent = '📱 MOBILE';
+        document.getElementById('mode').style.color = '#dc2626';
+        document.getElementById('mode').style.fontWeight = 'bold';
+      } else {
+        document.getElementById('mode').textContent = '💻 DESKTOP';
+        document.getElementById('mode').style.color = '#16a34a';
+        document.getElementById('mode').style.fontWeight = 'bold';
+      }
+    }
+    
+    updateScreenInfo();
+    window.addEventListener('resize', updateScreenInfo);
+  </script>
+</body>
+</html>

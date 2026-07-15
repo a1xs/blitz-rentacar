@@ -109,19 +109,23 @@
   }
   
   .modal-body {
+    display: flex !important;
+    flex-direction: column !important;
     max-height: 100vh;
     overflow-y: auto;
-    grid-template-columns: 1fr;
-    grid-template-areas: "gallery" "details";
+    grid-template-columns: unset !important;
+    grid-template-areas: unset !important;
   }
   
   .modal-gallery {
+    order: 1 !important;
     padding: 16px;
     padding-top: 60px;
     border-bottom: 1px solid #e2e8f0;
   }
   
   .modal-details {
+    order: 2 !important;
     padding: 16px;
   }
   
